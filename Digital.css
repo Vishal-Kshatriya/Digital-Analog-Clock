@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+    height: 100vh;
+    background: url("clock.jpg")no-repeat;
+    /* background-color: rgb(4, 81, 31); */
+    background-size: cover;
+    overflow: hidden;
+    animation: colorful 20s linear infinite;
+}
+
+
+.clock{
+    width: 100%;
+    max-width:380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 8px rgb(5, 167, 242), 3px  10px  20px rgb(7, 168, 243), 3px  10px  20px;        /*rgb(246, 136, 63), 3px  10px  20px rgba(250, 224, 90, 0.918);*/
+    height: 20vh;
+    border-radius: 15px;
+    padding:20px;
+}
+.clock h1{
+    color: rgb(56, 186, 246);
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+.clock span{
+    color: rgb(9, 146, 184);
+    position: relative;
+    top: -13px;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media screen and (max-width:274px){
+    .clock{
+        max-width: 210px;
+        padding:5px;
+    }
+    .clock h1{
+        font-size: 1.9rem;
+    }
+}
+@media screen and (max-width:275px) and (max-width:400px){
+    .clock{
+        max-width: 260px;
+        padding:5px;
+    }
+    .clock h1{
+        font-size: 2.4rem;
+    }
+}
+
+.wrapper{
+    margin-top: 10px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* animation: colorful 20s linear infinite; */
+}
+@keyframes colorful{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+.bar-seconds,
+.number-hours{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: purple; */
+    border-radius: 50%
+}
+.bar-seconds span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg));
+    inset: -20px;
+    text-align: center;
+}
+.bar-seconds span:nth-child(5n) p {
+    width: 2.4px;
+    height: 7.2px;
+    transform: translateY(1px);
+}
+
+.bar-seconds span p{
+    display: inline-block;
+    width: .8px;
+    height: 4.8px;
+    background: #0ef;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #0ef;
+}
+
+.number-hours span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 30deg));
+    inset: 6px;
+    text-align: center;
+}
+.number-hours span p {
+    font-size: 20.8px;
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+    transform: rotate(calc(var(--index) * -30deg));
+}
+
+.hands-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hands-box .hand {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+.hands-box .hand i {
+    display: inline-block;
+    transform-origin: bottom;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0ef;
+}
+
+.hands-box .hours {
+    width: 128px;
+    height: 128px;
+    /* border: 2px solid red; */
+}
+.hands-box .hours i{
+    width: 3.2px;
+    height:64px;
+    background: red;
+    
+}
+
+.hands-box .minutes {
+    width: 180px;
+    height: 180px;
+    /* border: 2px solid yellow; */
+}
+.hands-box .minutes::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: #0ef;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #0ef;
+}
+.hands-box .minutes i{
+    width: 3.2px;
+    height:90px;
+    background: #0ef;
+    
+}
+
+.hands-box .seconds {
+    width: 192px;
+    height: 192px;
+    /* border: 2px solid white; */
+}
+.hands-box .seconds::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
+.hands-box .seconds i{
+    width: 3.2px;
+    height:calc(96px + 25px);
+    background: white;
+    box-shadow: none;
+    /* transform: rotate(160deg); */
+}
+
+
+
+
+
+
